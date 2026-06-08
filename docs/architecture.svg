@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1580" viewBox="0 0 1240 1580" font-family="Segoe UI, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3b6cf6"/><stop offset="1" stop-color="#2552eb"/>
+    </linearGradient>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="1580" fill="url(#bg)"/>
+
+  <!-- ── Header ─────────────────────────────────────────────── -->
+  <g transform="translate(60,50)">
+    <rect width="64" height="64" rx="14" fill="url(#brand)"/>
+    <text x="32" y="44" font-size="38" font-weight="700" fill="#fff" text-anchor="middle">E</text>
+    <text x="84" y="32" font-size="40" font-weight="800" fill="#fff">EduSlot</text>
+    <text x="84" y="62" font-size="19" fill="#94a3b8">Course / Class Enrollment Platform — System Architecture</text>
+  </g>
+  <text x="1180" y="50" font-size="16" fill="#64748b" text-anchor="end">Microservices · Micro-frontends</text>
+  <text x="1180" y="74" font-size="16" fill="#64748b" text-anchor="end">React · Node · Express · PostgreSQL · JWT</text>
+  <g transform="translate(1040,86)">
+    <rect width="140" height="26" rx="13" fill="#0b3a5b" stroke="#2496ed"/>
+    <text x="70" y="18" font-size="13" font-weight="600" fill="#7fc4f5" text-anchor="middle">🐳 Dockerized</text>
+  </g>
+
+  <!-- Browser -->
+  <g transform="translate(470,145)" filter="url(#sh)">
+    <rect width="300" height="56" rx="12" fill="#334155"/>
+    <text x="150" y="35" font-size="21" font-weight="600" fill="#e2e8f0" text-anchor="middle">🌐  Browser  (one URL :5000)</text>
+  </g>
+  <line x1="620" y1="201" x2="620" y2="236" stroke="#475569" stroke-width="2"/>
+
+  <!-- ══════════ FRONTEND (Docker) ══════════ -->
+  <g transform="translate(60,240)">
+    <rect width="1120" height="270" rx="18" fill="#0c2a45" stroke="#2496ed" stroke-width="2" stroke-dasharray="8 5"/>
+    <g transform="translate(20,-1)">
+      <rect width="320" height="30" rx="15" fill="#2496ed"/>
+      <text x="14" y="20" font-size="15" font-weight="700" fill="#06283d">🐳 FRONTEND — 3 Docker containers</text>
+    </g>
+    <text x="1100" y="22" font-size="13" fill="#7fc4f5" text-anchor="end">Vite build · served by nginx · Module Federation</text>
+
+    <!-- Shell -->
+    <g transform="translate(380,52)" filter="url(#sh)">
+      <rect width="360" height="78" rx="12" fill="url(#brand)"/>
+      <text x="180" y="30" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">Shell App  ·  :5000</text>
+      <text x="180" y="52" font-size="13" fill="#dbeafe" text-anchor="middle">Auth · Dynamic Sidebar · TopBar</text>
+      <text x="180" y="70" font-size="13" fill="#dbeafe" text-anchor="middle">shared UI kit (shell/ui · shell/access)</text>
+    </g>
+
+    <!-- remotes -->
+    <g transform="translate(150,168)" filter="url(#sh)">
+      <rect width="380" height="78" rx="12" fill="#0ea5e9"/>
+      <text x="190" y="30" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">Admin App  ·  :5004</text>
+      <text x="190" y="52" font-size="13" fill="#e0f2fe" text-anchor="middle">Masters · Role Mgmt</text>
+      <text x="190" y="70" font-size="13" fill="#e0f2fe" text-anchor="middle">User Mgmt</text>
+    </g>
+    <g transform="translate(590,168)" filter="url(#sh)">
+      <rect width="380" height="78" rx="12" fill="#0ea5e9"/>
+      <text x="190" y="30" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">Enroll App  ·  :5002</text>
+      <text x="190" y="52" font-size="13" fill="#e0f2fe" text-anchor="middle">Browse Courses (live seats)</text>
+      <text x="190" y="70" font-size="13" fill="#e0f2fe" text-anchor="middle">My Enrollments</text>
+    </g>
+    <line x1="560" y1="130" x2="340" y2="168" stroke="#1d4ed8" stroke-width="2"/>
+    <line x1="560" y1="130" x2="780" y2="168" stroke="#1d4ed8" stroke-width="2"/>
+  </g>
+
+  <line x1="620" y1="510" x2="620" y2="548" stroke="#475569" stroke-width="2"/>
+
+  <!-- ══════════ BACKEND (Docker) ══════════ -->
+  <g transform="translate(60,552)">
+    <rect width="1120" height="420" rx="18" fill="#0d2e22" stroke="#34d399" stroke-width="2" stroke-dasharray="8 5"/>
+    <g transform="translate(20,-1)">
+      <rect width="340" height="30" rx="15" fill="#34d399"/>
+      <text x="14" y="20" font-size="15" font-weight="700" fill="#052e16">🐳 BACKEND — 4 Docker containers</text>
+    </g>
+    <text x="1100" y="22" font-size="13" fill="#6ee7b7" text-anchor="end">Node + Express · RBAC enforced per route</text>
+
+    <!-- Gateway -->
+    <g transform="translate(320,50)" filter="url(#sh)">
+      <rect width="480" height="74" rx="14" fill="#7c3aed"/>
+      <text x="240" y="32" font-size="21" font-weight="700" fill="#fff" text-anchor="middle">API Gateway  ·  :3000</text>
+      <text x="240" y="56" font-size="13" fill="#ede9fe" text-anchor="middle">routing · JWT forward · aggregated /docs (Swagger)</text>
+    </g>
+    <line x1="560" y1="124" x2="560" y2="158" stroke="#334155" stroke-width="2"/>
+
+    <!-- services -->
+    <g transform="translate(40,168)" filter="url(#sh)">
+      <rect width="335" height="160" rx="12" fill="#0f766e"/>
+      <text x="167" y="34" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">User &amp; Access · :4001</text>
+      <text x="167" y="64" font-size="14" fill="#ccfbf1" text-anchor="middle">Auth (JWT + bcrypt)</text>
+      <text x="167" y="88" font-size="14" fill="#ccfbf1" text-anchor="middle">Roles · Pages · Permissions</text>
+      <text x="167" y="112" font-size="14" fill="#ccfbf1" text-anchor="middle">User management</text>
+      <text x="167" y="138" font-size="13" fill="#5eead4" text-anchor="middle">+ Swagger /docs</text>
+    </g>
+    <g transform="translate(392,168)" filter="url(#sh)">
+      <rect width="336" height="160" rx="12" fill="#0f766e"/>
+      <text x="168" y="34" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">Master Data · :4003</text>
+      <text x="168" y="64" font-size="14" fill="#ccfbf1" text-anchor="middle">States · Campuses</text>
+      <text x="168" y="88" font-size="14" fill="#ccfbf1" text-anchor="middle">Categories · Instructors</text>
+      <text x="168" y="112" font-size="14" fill="#ccfbf1" text-anchor="middle">Courses (seat capacity)</text>
+      <text x="168" y="138" font-size="13" fill="#5eead4" text-anchor="middle">+ Swagger /docs</text>
+    </g>
+    <g transform="translate(745,168)" filter="url(#sh)">
+      <rect width="335" height="160" rx="12" fill="#0f766e"/>
+      <text x="167" y="34" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">Enrollment · :4002</text>
+      <text x="167" y="64" font-size="14" fill="#ccfbf1" text-anchor="middle">Browse courses</text>
+      <text x="167" y="88" font-size="14" fill="#ccfbf1" text-anchor="middle">Live seats remaining</text>
+      <text x="167" y="112" font-size="14" fill="#ccfbf1" text-anchor="middle">Enroll / drop (no oversell)</text>
+      <text x="167" y="138" font-size="13" fill="#5eead4" text-anchor="middle">+ Swagger /docs</text>
+    </g>
+    <line x1="207" y1="328" x2="207" y2="360" stroke="#334155" stroke-width="2"/>
+    <line x1="560" y1="328" x2="560" y2="360" stroke="#334155" stroke-width="2"/>
+    <line x1="912" y1="328" x2="912" y2="360" stroke="#334155" stroke-width="2"/>
+    <line x1="207" y1="360" x2="912" y2="360" stroke="#334155" stroke-width="2"/>
+    <line x1="560" y1="360" x2="560" y2="384" stroke="#334155" stroke-width="2"/>
+  </g>
+
+  <!-- ══════════ DATABASE (host) ══════════ -->
+  <g transform="translate(420,1000)" filter="url(#sh)">
+    <rect width="400" height="74" rx="12" fill="#1f2937" stroke="#f59e0b" stroke-dasharray="6 4"/>
+    <text x="200" y="32" font-size="20" font-weight="700" fill="#e2e8f0" text-anchor="middle">🗄  PostgreSQL  ·  :5432</text>
+    <text x="200" y="56" font-size="13" fill="#fbbf24" text-anchor="middle">runs on HOST · reached via host.docker.internal</text>
+  </g>
+
+  <!-- ── Engineering highlights ── -->
+  <g transform="translate(60,1110)">
+    <text x="0" y="0" font-size="19" font-weight="700" fill="#f8fafc">Engineering highlights</text>
+    <g font-size="14.5" fill="#cbd5e1">
+      <rect x="0"   y="16" width="548" height="54" rx="10" fill="#1e293b" stroke="#334155"/>
+      <text x="18" y="40" font-weight="600" fill="#93c5fd">🧩 Dynamic RBAC</text>
+      <text x="18" y="61">Roles → page + action permissions, enforced UI + API</text>
+
+      <rect x="572" y="16" width="548" height="54" rx="10" fill="#1e293b" stroke="#334155"/>
+      <text x="590" y="40" font-weight="600" fill="#93c5fd">🗂 Database-driven sidebar</text>
+      <text x="590" y="61">Self-referencing pages table → zero-code menus</text>
+
+      <rect x="0"   y="82" width="548" height="54" rx="10" fill="#1e293b" stroke="#334155"/>
+      <text x="18" y="106" font-weight="600" fill="#93c5fd">🪑 Seat-safe enrollment</text>
+      <text x="18" y="127">Row-locked capacity check — no overselling</text>
+
+      <rect x="572" y="82" width="548" height="54" rx="10" fill="#1e293b" stroke="#334155"/>
+      <text x="590" y="106" font-weight="600" fill="#93c5fd">📖 Swagger / OpenAPI</text>
+      <text x="590" y="127">Interactive docs per service, aggregated at gateway</text>
+    </g>
+  </g>
+
+  <!-- ── Build progress ── -->
+  <g transform="translate(60,1300)">
+    <text x="0" y="0" font-size="19" font-weight="700" fill="#f8fafc">Build progress</text>
+    <g font-size="14">
+      <!-- done -->
+      <g fill="#052e16">
+        <rect x="0"   y="16" width="168" height="40" rx="20" fill="#22c55e"/><text x="84"  y="41" text-anchor="middle" font-weight="600">✓ Foundation</text>
+        <rect x="183" y="16" width="150" height="40" rx="20" fill="#22c55e"/><text x="258" y="41" text-anchor="middle" font-weight="600">✓ JWT Auth</text>
+        <rect x="348" y="16" width="196" height="40" rx="20" fill="#22c55e"/><text x="446" y="41" text-anchor="middle" font-weight="600">✓ RBAC + Masters</text>
+        <rect x="559" y="16" width="168" height="40" rx="20" fill="#22c55e"/><text x="643" y="41" text-anchor="middle" font-weight="600">✓ Enrollment</text>
+        <rect x="742" y="16" width="150" height="40" rx="20" fill="#22c55e"/><text x="817" y="41" text-anchor="middle" font-weight="600">✓ Swagger</text>
+        <rect x="907" y="16" width="173" height="40" rx="20" fill="#2496ed"/><text x="993" y="41" text-anchor="middle" font-weight="600" fill="#06283d">🐳 Dockerized</text>
+      </g>
+      <!-- planned -->
+      <g fill="#94a3b8">
+        <rect x="0"   y="68" width="170" height="38" rx="19" fill="#1e293b" stroke="#475569"/><text x="85"  y="92" text-anchor="middle">Redis cache</text>
+        <rect x="185" y="68" width="170" height="38" rx="19" fill="#1e293b" stroke="#475569"/><text x="270" y="92" text-anchor="middle">RabbitMQ</text>
+        <rect x="370" y="68" width="200" height="38" rx="19" fill="#1e293b" stroke="#475569"/><text x="470" y="92" text-anchor="middle">WebSockets (live seats)</text>
+        <rect x="585" y="68" width="205" height="38" rx="19" fill="#1e293b" stroke="#475569"/><text x="687" y="92" text-anchor="middle">Prometheus + Grafana</text>
+        <rect x="805" y="68" width="115" height="38" rx="19" fill="#1e293b" stroke="#475569"/><text x="862" y="92" text-anchor="middle">CI/CD</text>
+        <rect x="935" y="68" width="145" height="38" rx="19" fill="#1e293b" stroke="#475569"/><text x="1007" y="92" text-anchor="middle">Kubernetes</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ── Footer ── -->
+  <text x="620" y="1532" font-size="14" fill="#7fc4f5" text-anchor="middle">🐳 Docker Compose orchestrates 7 containers — Frontend (3) + Backend (4)  ·  PostgreSQL runs on the host</text>
+  <text x="620" y="1556" font-size="14" fill="#475569" text-anchor="middle">EduSlot — built end-to-end as a production-patterns showcase  ·  React · Node · Express · PostgreSQL · JWT · Docker</text>
+</svg>

@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build output
+dist/
+**/dist/
+build/
+
+# Environment / secrets
+.env
+.env.local
+*.local
+
+# Local tooling settings (may contain machine-specific paths / secrets)
+.claude/
+
+# Logs
+*.log
+npm-debug.log*
+logs/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Vite / cache
+.vite/
+*.tsbuildinfo
+
+# Personal roadmap (not for public repo)
+PLAN.md

@@ -1,0 +1,103 @@
+services:
+  user-service:
+    build: ./backend/user-service
+    container_name: eduslot-user-service
+    environment:
+      PORT: 4001
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN}
+    ports:
+      - "4001:4001"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - eduslot
+
+  enrollment-service:
+    build: ./backend/enrollment-service
+    container_name: eduslot-enrollment-service
+    environment:
+      PORT: 4002
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      JWT_SECRET: ${JWT_SECRET}
+    ports:
+      - "4002:4002"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - eduslot
+
+  master-service:
+    build: ./backend/master-service
+    container_name: eduslot-master-service
+    environment:
+      PORT: 4003
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      JWT_SECRET: ${JWT_SECRET}
+    ports:
+      - "4003:4003"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - eduslot
+
+  api-gateway:
+    build: ./backend/api-gateway
+    container_name: eduslot-api-gateway
+    environment:
+      PORT: 3000
+      USER_SERVICE_URL: http://user-service:4001
+      ENROLLMENT_SERVICE_URL: http://enrollment-service:4002
+      MASTER_SERVICE_URL: http://master-service:4003
+    ports:
+      - "3000:3000"
+    depends_on:
+      - user-service
+      - enrollment-service
+      - master-service
+    networks:
+      - eduslot
+
+  enroll-app:
+    build: ./frontend/enroll-app
+    container_name: eduslot-enroll-app
+    ports:
+      - "5002:80"
+    networks:
+      - eduslot
+
+  admin-app:
+    build: ./frontend/admin-app
+    container_name: eduslot-admin-app
+    ports:
+      - "5004:80"
+    networks:
+      - eduslot
+
+  shell-app:
+    build: ./frontend/shell-app
+    container_name: eduslot-shell-app
+    ports:
+      - "5000:80"
+    depends_on:
+      - enroll-app
+      - admin-app
+    networks:
+      - eduslot
+
+networks:
+  eduslot:
+    driver: bridge
